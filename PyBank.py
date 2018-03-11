@@ -1,8 +1,16 @@
 import os
 import csv
-path = '/Users/rangedh/UCBSAN201802DATA3-Class-Repository-DATA/Homework/03-Python/Instructions/PyBank/raw_data'
+
+#Input File Path 
+inpath=input('Enter the Input file path: ')
+#output File path
+outpath=input('Enter the Output file path: ')
+
+
+# path = '/Users/rangedh/UCBSAN201802DATA3-Class-Repository-DATA/Homework/03-Python/Instructions/PyBank/raw_data'
+
 f = []
-for filename in os.listdir(path):
+for filename in os.listdir(inpath):
     #print(filename)
     monthly_rev=[]
     months=[]
@@ -14,7 +22,9 @@ for filename in os.listdir(path):
     smallest_increase=0
     greatest_month = ''
     smallest_month = ''
-    with open(path+'/'+filename,'r',) as f:
+
+    in_file = os.path.join(inpath, filename)
+    with open(in_file) as f:
         next(f)
         data=[tuple(line) for line in csv.reader(f)]
         #reader=csv.reader(f, delimiter=',')
